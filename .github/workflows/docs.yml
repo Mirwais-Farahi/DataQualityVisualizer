@@ -21,4 +21,4 @@ jobs:
 
       - name: Build documentation with Sphinx
         run: |
-          sphinx-build -b html docs/ build/
+          if [ -d "docs" ]; then sphinx-build -b html docs/ build/; else echo "Documentation source directory 'docs' not found."; exit 1; fi
