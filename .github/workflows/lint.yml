@@ -1,0 +1,27 @@
+name: Linting and Code Style
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          pip install flake8 black
+
+      - name: Lint code with flake8
+        run: |
+          flake8 .
+
+      - name: Format code with black
+        run: |
+          black --check .
