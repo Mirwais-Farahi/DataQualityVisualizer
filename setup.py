@@ -32,9 +32,4 @@ setup(
     packages=["data_quality_visualizer"],
     include_package_data=True,
     install_requires=["pandas","numpy"],
-    entry_points={
-        'console_scripts': [
-            'dataqualityvisualizer=main:main',
-        ],
-    }
 )
